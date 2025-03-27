@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "frontend": "vite", // or "react-scripts start" if using CRA
+    "frontend": "vite",
     "backend": "nodemon backend/server.js",
-    "build": "vite build", // or "react-scripts build"
+    "build": "vite build", 
     "start": "node backend/server.js"
   },
   "dependencies": {
