@@ -160,6 +160,19 @@ router.delete("/delete-skill/:id", async (req, res) => {
   }
 });
 
+
+// Get directory name (for ES Module compatibility)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// **Serve Frontend Build Folder**
+app.use(express.static(path.join(__dirname, "client", "dist"))); // Change "dist" to "build" if using CRA
+
+// **Catch-All Route for React/Vite**
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html")); // Adjust if using CRA
+});
+
 // Use router for skills
 app.use("/api", router);
 
