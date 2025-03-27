@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "frontend": "vite", // or "react-scripts start" if using CRA
+    "backend": "nodemon backend/server.js",
+    "build": "vite build", // or "react-scripts build"
+    "start": "node backend/server.js"
   },
   "dependencies": {
     "axios": "^1.8.4",
